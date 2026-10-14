@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scholar with Ranks privacy policy</title>
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, sans-serif; line-height: 1.65; }
+    body { max-width: 760px; margin: 48px auto; padding: 0 24px 48px; }
+    h1, h2 { line-height: 1.25; } h2 { margin-top: 32px; }
+    a { color: light-dark(#174ea6, #8ab4f8); }
+    .date { opacity: .75; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Scholar with Ranks privacy policy</h1>
+    <p class="date">Last updated: 14 October 2026. Applies to extension version 2.2.0.</p>
+    <p>Scholar with Ranks adds venue rankings, rank filters, and summary statistics to Google Scholar author profiles. Ranking calculations use datasets bundled with the extension and run in your browser.</p>
+
+    <h2>Information the extension handles</h2>
+    <p>On supported Google Scholar pages, the extension reads profile and publication information needed for its features. This can include author names, profile identifiers and URLs, publication titles and links, author lists, venue names, publication years, citation counts, and the resulting rankings, scores, and diagnostics.</p>
+    <p>The extension stores settings, cached publication results, ranking data freshness state, and interface preferences in Chrome extension local storage. Records retained from earlier versions may also include saved profile snapshots, comparisons, and report drafts. These records can contain profile and publication information. The extension uses local storage rather than Chrome storage sync.</p>
+
+    <h2>How information is used</h2>
+    <p>Information is used to match publication venues to bundled ranking data, display badges and summary statistics, filter publications, and restore preferences and cached results. Derived scoring data may be calculated internally but the current version does not expose the older score or downloadable-report controls. The extension does not include advertising, analytics, or a telemetry service, and does not automatically upload profile results to a developer-operated server.</p>
+
+    <h2>Network requests and external links</h2>
+    <p>The extension requests additional publication-list pages from Google Scholar to process a profile's publications. These requests use the Scholar page's origin and may include your existing Scholar session cookies through the browser's normal request handling. The extension does not read or store passwords or extract authentication cookies. Google receives the requests and handles them under its own policies.</p>
+    <p>Ranking data and executable code are packaged with the extension. Ranking calculations do not require sending profile data to CORE, SCImago, or DBLP.</p>
+    <p>Earlier releases included a Report Issue link to Microsoft Forms. The current profile summary does not expose that control. If you use an external support form or link, information you choose to submit is sent to that provider and its recipient under their policies. GitHub support issues are public; do not include private information in an issue.</p>
+
+    <h2>Reports and local retention</h2>
+    <p>The current version does not expose the older downloadable-report controls. Reports saved by earlier versions may include author names, profile URLs, publication information, and derived scores. You control whether to share downloaded files.</p>
+    <p>Settings, saved records, and caches remain in local extension storage until removed or replaced by the extension or until you uninstall it. Some caches are invalidated when ranking data or the scoring model changes; there is no promise that every local record expires automatically. Resetting settings resets preferences and does not necessarily delete all profile records. Uninstalling the extension removes its extension local storage. Downloaded reports remain on your device until you delete them separately.</p>
+
+    <h2>Data use commitments</h2>
+    <p>The extension's use of information adheres to the Chrome Web Store User Data Policy, including the Limited Use requirements. Information handled by the extension is used for its stated venue ranking features. It is not sold, used for advertising, or used to determine creditworthiness or lending eligibility.</p>
+
+    <h2>Contact and changes</h2>
+    <p>For privacy questions about the extension, contact the project maintainers through the <a href="https://github.com/mg98/Scholar-with-Ranks/issues">project issue tracker</a>. Do not post sensitive information publicly. If the extension's data practices change, this policy will be updated with the corresponding release.</p>
+  </main>
+</body>
+</html>
