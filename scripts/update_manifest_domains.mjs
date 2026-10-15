@@ -1,7 +1,7 @@
 /*
  * Rewrites the scholar.google.* domain lists in GSVR/manifest.json from one
- * canonical list, keeping content_scripts.matches, host_permissions, and
- * web_accessible_resources[0].matches in sync.
+ * canonical list. Content scripts run only on citations pages; resources
+ * retain origin-wide matches as required by web_accessible_resources.
  *
  * The list is the union of Google's published ccTLD set
  * (https://www.google.com/supported_domains, fetched 2026-06-11) and the
@@ -40,12 +40,6 @@ const GOOGLE_CCTLDS = [
 // (kept so no previously-supported host regresses).
 const LEGACY_EXTRAS = ["us", "il", "kr", "ua"];
 
-const EXTRA_HOST_PERMISSIONS = [
-  "https://dblp.org/*",
-  "https://scholar.googleusercontent.com/*",
-  "https://sparql.dblp.org/*",
-];
-
 function buildScholarMatches() {
   const suffixes = new Set([...GOOGLE_CCTLDS, ...LEGACY_EXTRAS]);
   const patterns = ["https://scholar.google.com/*"];
@@ -61,8 +55,10 @@ const manifest = JSON.parse(await fs.readFile(manifestPath, "utf8"));
 
 const scholarMatches = buildScholarMatches();
 
-manifest.content_scripts[0].matches = scholarMatches;
-manifest.host_permissions = [...scholarMatches, ...EXTRA_HOST_PERMISSIONS];
+manifest.content_scripts[0].matches = scholarMatches.map((pattern) => pattern.replace('/*', '/citations*'));
+// Static injection and same-origin Scholar fetches need no explicit host
+// permissions. The popup uses tab IDs and messaging, not sensitive tab URLs.
+delete manifest.host_permissions;
 for (const resource of manifest.web_accessible_resources || []) {
   resource.matches = scholarMatches;
 }

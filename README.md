@@ -1,11 +1,21 @@
-![Version 2.1.0](https://img.shields.io/badge/version-2.1.0-blue.svg)
+![Version 2.2.0](https://img.shields.io/badge/version-2.2.0-blue.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Scholar with Ranks
 
-Scholar with Ranks is an open-source Chrome extension developed by [Naveed Bhatti](https://naveedanwarbhatti.github.io/). Its purpose is to make Google Scholar author profiles easier to audit by adding DBLP-verified CORE/SJR venue ranks, a raw fractional GSVR Score, scoring-completeness diagnostics, and downloadable evidence reports. When a paper can be verified, GSVR uses a DBLP-backed ranking pipeline instead of trusting editable Google Scholar venue text alone.
+Scholar with Ranks is an open-source Chrome extension developed by [Naveed Bhatti](https://naveedanwarbhatti.github.io/). Version 2.2.0 adds CORE conference ranks, SJR journal quartiles, rank filters, and timeline summaries to Google Scholar author profiles. It matches venue text from Scholar profiles against bundled ranking datasets in the browser. It does not independently verify each publication against a remote DBLP record.
+
+The current summary panel exposes rank breakdowns and full-timeline/last-10-years controls. Older score, export, comparison, and feedback controls described in the historical notes below are not exposed in the current panel.
+
+For publishing this release, use the [publishing checklist](docs/publishing-checklist.md), [store listing copy](docs/chrome-web-store-listing.md), and [privacy policy](docs/privacy.html).
 
 ## Demo
+
+Version 2.2.0 running on Geoffrey Hinton's public Google Scholar profile:
+
+![Scholar with Ranks showing inline venue badges, citation graph markers, and the CORE/SJR rank breakdown on Geoffrey Hinton's profile](docs/images/screenshot-candidate.png)
+
+The following demo media shows an earlier release, including controls absent from version 2.2.0.
 
 ![GSVR demo showing the Scholar profile overlay, score panel, rank filters, and report actions](docs/images/GSVR_demo.gif)
 

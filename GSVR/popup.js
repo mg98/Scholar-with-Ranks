@@ -50,10 +50,12 @@
 
   // ----- live state of the active tab -----
 
-  async function getActiveScholarTab() {
+  async function getActiveTab() {
     try {
       const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-      if (!tab?.id || !/^https:\/\/scholar\.google\./.test(tab.url || "")) {
+      // Tab IDs are available without host or tabs permissions. The content
+      // script's response identifies supported pages without reading tab URLs.
+      if (!tab?.id) {
         return null;
       }
       return tab;
@@ -102,7 +104,7 @@
   }
 
   async function refreshTabState() {
-    const tab = await getActiveScholarTab();
+    const tab = await getActiveTab();
     if (!tab) {
       if (tabStateEl) tabStateEl.textContent = "Open a Google Scholar profile to see live status.";
       if (rescanButton) rescanButton.disabled = true;
@@ -116,7 +118,7 @@
   }
 
   rescanButton?.addEventListener("click", async () => {
-    const tab = await getActiveScholarTab();
+    const tab = await getActiveTab();
     if (!tab) return;
     rescanButton.disabled = true;
     const response = await sendTabMessage(tab.id, { type: "GSVR_POPUP_RESCAN" });

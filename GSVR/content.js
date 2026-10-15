@@ -4379,7 +4379,8 @@ async function fetchVenueAndYear(publicationUrl) {
     return { venueName, publicationYear, venueLabel, pdfUrl, doi };
 }
 // Best-effort PDF page count extraction.
-// Only attempts PDFs hosted on scholar.googleusercontent.com (allowed by host permissions).
+// Only attempts PDFs hosted on scholar.googleusercontent.com; normal CORS
+// rules apply to this best-effort content-script request.
 async function tryGetPdfPageCount(pdfUrl) {
     if (!pdfUrl) return null;
     let urlObj;

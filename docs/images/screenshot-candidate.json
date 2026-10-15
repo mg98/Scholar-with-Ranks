@@ -1,0 +1,15 @@
+{
+  "subject": "Geoffrey Hinton",
+  "profile_url": "https://scholar.google.com/citations?user=JicYPdAAAAAJ&hl=en",
+  "captured_on": "2026-10-14",
+  "extension_version": "2.2.0",
+  "extension_installation": "Existing unpacked extension installed from GSVR in Google Chrome; actual rendered UI captured through Chrome DevTools Capture screenshot.",
+  "dimensions": [
+    1280,
+    800
+  ],
+  "format": "24-bit RGB PNG without alpha",
+  "browser_zoom": "80%",
+  "ranked_publications": 333,
+  "image_processing": "Converted opaque RGBA PNG to RGB; no content changes."
+}
